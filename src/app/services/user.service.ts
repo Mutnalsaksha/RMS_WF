@@ -57,11 +57,14 @@ export class UserService {
       })
     )
   }
-  // logout(){
+  logout(){
+
+    this.userSubject.next(new User());
+    localStorage.removeItem(USER_KEY);
   //   this.userSubject.next(new User());
   //   localStorage.removeItem(USER_KEY);
   //   window.location.reload();
-  // }
+  }
   private setUserToLocalStorage(user:User){
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
@@ -73,3 +76,4 @@ export class UserService {
     return new User();
   }
 }
+ 
